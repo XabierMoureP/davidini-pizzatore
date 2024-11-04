@@ -15,7 +15,7 @@ document
 
     try {
       const response = await fetch(
-        "https://4q4xda75oq2zwljjtjkooxrnme0fhccm.lambda-url.us-west-2.on.aws/",
+        "https://jtousjiobp4duf34gvwc36oky40skqph.lambda-url.eu-west-3.on.aws/",
         {
           method: "POST",
           headers: {

@@ -18,7 +18,7 @@ document.getElementById("user-form").addEventListener("submit", function (e) {
 
   // Hacer la solicitud POST a la función Lambda
   fetch(
-    "https://xtjlannbqy2dy67meb26eolwli0rjndv.lambda-url.eu-west-3.on.aws/",
+    "https://jtousjiobp4duf34gvwc36oky40skqph.lambda-url.eu-west-3.on.aws/",
     {
       method: "POST",
       headers: {

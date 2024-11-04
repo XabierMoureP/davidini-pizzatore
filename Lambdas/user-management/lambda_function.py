@@ -3,14 +3,14 @@ import mysql.connector
 
 def lambda_handler(event, context):
     # Cargar el cuerpo de la solicitud
-    # body = json.loads(event['body'])
-    body = event['body']
+    body = json.loads(event['body'])
+    # body = event['body']
     # Conectar a la base de datos
     mydb = mysql.connector.connect(
-        host="db-davidini-pizzatore.clygy4geg1ag.eu-west-3.rds.amazonaws.com",
+        host="davidini-pizzatore.c1a4mekoqchm.eu-west-3.rds.amazonaws.com",
         user="admin",
         password="adminadmin",
-        database="davidini_pizzatore"
+        database="db_pizzeria"
     )
 
     # Obtener el cursor para ejecutar consultas
@@ -46,7 +46,7 @@ def insert_user(mydb, cursor, email, nombre, apellido, contrasena):
 
 def login_user(cursor, email, contrasena):
     # Consultar el usuario en la base de datos
-    cursor.execute("SELECT contrasena FROM Usuarios WHERE email = %s", (email))
+    cursor.execute("SELECT contrasena FROM Usuarios WHERE email = %s", (email,))
     result = cursor.fetchone()
     
     if result:
