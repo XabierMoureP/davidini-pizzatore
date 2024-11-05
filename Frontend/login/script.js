@@ -31,7 +31,7 @@ document
       const responseMessage = document.getElementById("responseMessage");
       if (response.ok) {
         window.location.href = "../home/home.html"; // Redirige a la página de inicio
-        localStorage.setItem("usuario", email); // Guarda el email en el localStorage
+        localStorage.setItem("id_usuario", data.id_usuario); // Guarda el email en el localStorage
       } else {
         responseMessage.style.color = "red";
         responseMessage.textContent = data.message; // Mensaje de error

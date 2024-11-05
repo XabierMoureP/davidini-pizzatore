@@ -13,8 +13,19 @@
         <div class="header-container">
             <h1>Menú de Davidini Pizzatore</h1>
             <p>Disfruta de nuestras deliciosas pizzas</p>
+            <button id="viewOrdersButton" class="button">Ver mis pedidos</button>
         </div>
     </header>
+
+    <div id="ordersModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h2>Mis Pedidos</h2>
+            <ul id="ordersList">
+                <!-- Los IDs de los pedidos se cargarán aquí -->
+            </ul>
+        </div>
+    </div>
 
     <main>
         <div id="menuContainer" class="menu-container">

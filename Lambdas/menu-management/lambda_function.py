@@ -12,8 +12,7 @@ def lambda_handler(event, context):
             password="adminadmin",
             database="db_pizzeria"
         )
-        
-        
+                
         cursor = mydb.cursor(dictionary=True)
         
         # Consulta para obtener los productos del menú

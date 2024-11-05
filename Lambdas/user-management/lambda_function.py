@@ -4,7 +4,7 @@ import mysql.connector
 def lambda_handler(event, context):
     # Cargar el cuerpo de la solicitud
     body = json.loads(event['body'])
-    # body = event['body']
+    
     # Conectar a la base de datos
     mydb = mysql.connector.connect(
         host="davidini-pizzatore.c1a4mekoqchm.eu-west-3.rds.amazonaws.com",
@@ -45,17 +45,20 @@ def insert_user(mydb, cursor, email, nombre, apellido, contrasena):
     }
 
 def login_user(cursor, email, contrasena):
-    # Consultar el usuario en la base de datos
-    cursor.execute("SELECT contrasena FROM Usuarios WHERE email = %s", (email,))
+    # Consultar el usuario en la base de datos para obtener la contraseña y el id_usuario
+    cursor.execute("SELECT id_usuario, contrasena FROM Usuarios WHERE email = %s", (email,))
     result = cursor.fetchone()
     
     if result:
+        # Separar los resultados de la consulta
+        id_usuario, stored_contrasena = result
+        
         # Comparar la contraseña ingresada con la almacenada
-        stored_contrasena = result[0]
         if contrasena == stored_contrasena:
             response_body = {
                 "message": "Login successful",
-                "email": email
+                "email": email,
+                "id_usuario": id_usuario,
             }
             status_code = 200
         else:
